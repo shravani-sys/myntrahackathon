@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Mood Board</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #ee11c9;
+            text-align: center;
+        }
+        form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        select, button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .mood-board {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .mood {
+            width: 48%;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: center;
+        }
+        .mood h2 {
+            background-color: #ff3f6c;
+            color: #ffffff;
+            margin: 0;
+            padding: 10px;
+        }
+        .mood a {
+            display: block;
+            color: #ff3f6c;
+            text-decoration: none;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .mood a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Myntra Mood Board</h1>
+        <form method="POST">
+            <select name="mood">
+                <option value="happy">Happy</option>
+                <option value="energetic">Energetic</option>
+                <option value="elegant">Elegant</option>
+                <option value="chic">Chic</option>
+                <option value="traditional">Traditional</option>
+                <option value="relaxed">Relaxed</option>
+                <option value="confident">Confident</option>
+                <option value="adventurous">Adventurous</option>
+                <option value="romantic">Romantic</option>
+                <option value="professional">Professional</option>
+            </select>
+            <button type="submit">Show Outfits</button>
+        </form>
+        <div class="mood-board">
+            {% for outfit in outfits %}
+            <div class="mood">
+                <h2>{{ outfit.name }}</h2>
+                <a href="{{ outfit.url }}" target="_blank">View on Myntra</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
