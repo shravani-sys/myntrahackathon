@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="quiz" class="quiz-container">
+        <div class="quiz-content">
+            <img src="https://logosandtypes.com/wp-content/uploads/2021/01/Myntra.png" alt="Myntra Logo" class="myntra-logo">
+            <div id="question-container" class="white-box">
+                <p id="question" class="question"></p>
+                <p><input type="radio" name="answer" value="a" id="answerA"> <label for="answerA" id="labelA"></label></p>
+                <p><input type="radio" name="answer" value="b" id="answerB"> <label for="answerB" id="labelB"></label></p>
+                <p><input type="radio" name="answer" value="c" id="answerC"> <label for="answerC" id="labelC"></label></p>
+            </div>
+            <div id="timer" class="timer">Time left: <span id="time-left">10</span> seconds</div>
+            <button id="next" class="btn btn-primary mt-3">Next Question</button>
+            <div id="results" class="mt-4"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

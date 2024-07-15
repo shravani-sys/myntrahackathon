@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    background-image: url('https://cdn.rt.emap.com/wp-content/uploads/sites/2/2021/05/25172949/DRE_GenZ_21_INDEX1.jpg'); /* Specify your main background image URL */
+}
+
+.quiz-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for better readability */
+}
+
+.quiz-content {
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for content */
+    border-radius: 8px;
+    text-align: center;
+}
+
+.white-box {
+    background-color: transparent; /* Transparent background for the box */
+    color: #000000; /* Black text color */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    margin-bottom: 20px; /* Margin bottom for spacing */
+}
+
+.myntra-logo {
+    width: 100px; /* Adjust size as needed */
+    margin-bottom: 20px;
+}
+
+.timer {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
