@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Challenge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eb78b5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        .challenge-description {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .upload-form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"], input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .submissions {
+            margin-top: 20px;
+        }
+
+        .submission {
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            text-align: left;
+        }
+
+        .submission img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+
+        .vote-button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .vote-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Style Challenge</h1>
+        <p class="challenge-description">Participate in our weekly style challenge and win exciting prizes!</p>
+        <form class="upload-form" id="upload-form">
+            <label for="outfit-image">Upload your outfit image:</label>
+            <input type="file" id="outfit-image" accept="image/*" required>
+            <label for="description">Describe your look:</label>
+            <input type="text" id="description" placeholder="Describe your outfit..." required>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="submissions" id="submissions"></div>
+    </div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const fileInput = document.getElementById('outfit-image');
+            const descriptionInput = document.getElementById('description');
+            const submissionsContainer = document.getElementById('submissions');
+
+            const file = fileInput.files[0];
+            const description = descriptionInput.value;
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const submissionHtml = `
+                        <div class="submission">
+                            <img src="${e.target.result}" alt="Outfit Image">
+                            <p>${description}</p>
+                            <button class="vote-button" onclick="vote(this)">Vote</button>
+                        </div>
+                    `;
+                    submissionsContainer.innerHTML += submissionHtml;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            fileInput.value = '';
+            descriptionInput.value = '';
+        });
+
+        function vote(button) {
+            button.textContent = 'Voted';
+            button.disabled = true;
+            button.style.backgroundColor = '#6c757d';
+        }
+    </script>
+</body>
+</html>
